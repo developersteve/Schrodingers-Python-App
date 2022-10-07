@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐱 Schrödinger's Python App 🐍</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+
+<body>
+    <div style="margin-top: 50px;" class="ui container">
+        <h1 class="ui center aligned header">🐱 Schrödinger's Python App 🐍</h1>
+        <blockquote class="center aligned" style="text-align: center;">"If a tree falls in the forest and no one hears it, then it is both standing and not standing."</blockquote>
+
+        <hr>
+
+        <form class="ui form" action="/add" method="POST">
+            <div class="field">
+                <label>Task Title</label>
+                <input type="text" name="title" placeholder="Enter Todo..."><br>
+            </div>
+            <button class="ui blue button" type="submit">Add</button>
+        </form>
+
+        <hr>
+
+        {% for todo in todo_list %}
+        <div class="ui segment">
+            <p class="ui big header">Task #{{todo.id }} |  
+            {% if todo.cat > 0 %}
+                {{ todo.cat }}
+            {% elif todo.meow > 0 %}
+                {{ todo.meow }}
+            {% endif %}
+                {{ todo.task }}
+            {%- if todo.cat > 1 -%}s{%- endif -%}
+            {%- if todo.meow > 1 -%}s{%- endif -%}
+            </p>
+
+            {% if todo.cat > 0 %}
+            <span class="ui yellow label">Cat</span>
+            {% elif todo.meow > 0 %}
+            <span class="ui orange label">Meow</span>
+            {% elif todo.complete == False %}
+            <span class="ui gray label">Not Complete</span>
+            {% else %}
+            <span class="ui green label">Completed</span>
+            {% endif %}
+            
+            {% if todo.complete == False %}
+            <a class="ui blue button" href="/update/{{ todo.id }}">Finished</a>
+            {% else %}
+            <a class="ui blue button" href="/update/{{ todo.id }}">Not Finished</a>
+            {% endif %}
+            <a class="ui red button" href="/delete/{{ todo.id }}">Delete</a>
+
+            {% if todo.task == "cat" %}
+            <a class="ui yellow button" href="/cat/{{ todo.id }}">Cat</a>
+            {% endif %}
+
+            {% if todo.task == "meow" %}
+            <a class="ui orange button" href="/meow/{{ todo.id }}">Meow</a>
+            {% endif %}
+
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
