@@ -2,6 +2,8 @@
 
 This app is designed to demonstrate how to trace and monitor your Python applications using [lumigo](https://lumigo.io) and the [Lumigo OpenTelemetry Python Distro](https://github.com/lumigo-io/opentelemetry-python-distro)
 
+![Schrodingers python app](./images/screenshot.png)
+
 ## Commands 
 
 These work beyond the standard todo base functionality add, delete and update routes from the base app to give you **Special Schrodinger Powers**
