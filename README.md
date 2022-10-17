@@ -6,7 +6,7 @@ This app is designed to demonstrate how to trace and monitor your Python applica
 
 ## Commands 
 
-These work beyond the standard todo base functionality add, delete and update routes from the base app to give you **Special Schrodinger Powers**
+These work beyond the standard todo base functionality add, delete and update routes from the base app to give you **Special Schrodinger Observability Powers**
 
 ### cat
 
@@ -24,10 +24,12 @@ creating a new todo entry using `httpstat` followed by a [http status](https://d
 
 These environmental variables need to be set as part of the apps launch to enable the SQS queue for the `meow` todo functionality to activate, These are can be obtained from you AWS and by setting up an SQS with associated permissions (stay tuned for a blog post!).
 
-`region_name`
-`aws_access_key_id`
-`aws_secret_access_key`
-`sendQueueUrl`
+```
+region_name
+aws_access_key_id
+aws_secret_access_key
+sendQueueUrl
+```
 
 ## Running 
 
