@@ -16,6 +16,10 @@ Entering `cat` into the todo item list will create a todo item with a cat button
 
 Similar to the cat button above, `meow` entered as a todo item will activate a meow button as part of the todo entry. Clicking the button will send a meow message to a SQS queue which can be end to end traced via Lumigo 
 
+### httpstat
+
+creating a new todo entry using `httpstat` followed by a [http status](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) code will force that status code to be returned. Example: Entering `httpstat 418` as a todo listing will return the "Im a Teapot" http response.
+
 ## Configure 
 
 These environmental variables need to be set as part of the apps launch to enable the SQS queue for the `meow` todo functionality to activate, These are can be obtained from you AWS and by setting up an SQS with associated permissions (stay tuned for a blog post!).

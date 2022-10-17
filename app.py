@@ -50,12 +50,20 @@ def add():
         return redirect(url_for("index"))
     # create a todo object
     newTask = Todo(task=title, complete=False, cat=0, meow=0)
+
+    if "httpstat" in title.lower():
+        httpstat = int("".join(filter(str.isdigit, title)))
+    else: 
+        httpstat = 0
     
     # try to add the object to the database
     try:
         db.session.add(newTask)
         db.session.commit()
-        return redirect(url_for("index"))
+        if httpstat > 0: 
+            return redirect(url_for("index")), httpstat
+        else:
+            return redirect(url_for("index"))
     except:
         return "There was an issue adding your task."
 
