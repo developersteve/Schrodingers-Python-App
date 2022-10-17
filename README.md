@@ -31,6 +31,12 @@ aws_secret_access_key
 sendQueueUrl
 ```
 
+Additionally these 2 vars need to be set as part of the Lumigo Tracer Distribution, Check out the [Lumigo docs on containerized apps](https://docs.lumigo.io/docs/containerized-applications) to find out more (or the blog post)  
+```
+LUMIGO_TRACER_TOKEN
+OTEL_SERVICE_NAME
+```
+
 ## Running 
 
 ### Locally
